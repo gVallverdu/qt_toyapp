@@ -1,0 +1,3 @@
+include ./src/ressources/data/AtomicWeightsAndIsotopicDataNIST2021.txt
+include ./src/ressources/ui/*.ui
+Makefile
