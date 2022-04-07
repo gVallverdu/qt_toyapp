@@ -82,9 +82,10 @@ ELECTRON_MASS = 0.0005485799
 # Reading NIST DATA
 # https://www.nist.gov/pml/atomic-weights-and-isotopic-compositions-relative-atomic-masses
 # TXT = "AtomicWeightsAndIsotopicCompNIST2019.txt"
-TXT = Path("resources/data/atomicWeightsAndIsotopicDataNIST2021.txt")
+TXT = Path("./atomicWeightsAndIsotopicDataNIST2021.txt")
 VERSION = 20210913
-DATA_FILE = Path(__file__).absolute().parents[1] / TXT
+DATA_FILE = Path(__file__).parent / TXT
+# DATA_FILE = Path(__file__).absolute().parents[1] / TXT
 
 NIST_DATA = read_isotopes_data(DATA_FILE)
 NIST_DATA["super symbol"] = NIST_DATA.apply(
