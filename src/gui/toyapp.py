@@ -9,6 +9,7 @@ from .isotopinator import Isotopinator
 from .plot_widget import Plot_widget
 from .last_widget import Last_widget
 
+
 class Toyapp(QMainWindow, Ui_main):
     """ This class is the main application """
 
@@ -52,4 +53,3 @@ class Toyapp(QMainWindow, Ui_main):
 
         # if name != current_name:
         #     self.widget_index[name])
-

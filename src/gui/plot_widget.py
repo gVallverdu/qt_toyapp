@@ -8,6 +8,7 @@ from .ui_plot_widget import Ui_plot_widget
 from plots.gaussian import gaussian_plot
 import matplotlib.pyplot as plt
 
+
 class Plot_widget(QWidget, Ui_plot_widget):
 
     def __init__(self, parent=None):
@@ -18,7 +19,7 @@ class Plot_widget(QWidget, Ui_plot_widget):
         self.setupUi(self)
 
         self.connect_signals_slots()
-    
+
     def connect_signals_slots(self):
         """ set up actions """
         self.plot_btn.clicked.connect(self.plot)
@@ -34,22 +35,18 @@ class Plot_widget(QWidget, Ui_plot_widget):
             try:
                 val = dtype(str_val)
             except ValueError:
-                QMessageBox.warning(self, "Error", 
+                QMessageBox.warning(
+                    self, "Error",
                     f"Wrong value: '{str_val}'\n You must write a {str(dtype)}.",
                     QMessageBox.Ok)
                 val = None
-            
+
             return val
 
         mean = check_value(self.mean_input, float)
         std = check_value(self.std_input, float)
         npts = check_value(self.npts_input, int)
-        
+
         with plt.xkcd():
             fig = gaussian_plot(mean, std, npts)
             fig.show()
-
-        # self.search_mass_split_btn.clicked.connect(self.search_mass_split)
-        # self.candidate_list.clicked.connect(self.select_candidate)
-        # self.error_list.clicked.connect(self.select_error)
-

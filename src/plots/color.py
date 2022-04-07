@@ -3,6 +3,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def color_plot(color):
     """ plot according to the color """
 

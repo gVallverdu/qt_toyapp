@@ -8,6 +8,7 @@ import pandas as pd
 __all__ = ["read_isotopes_data", "Element", "Isotope", "VERSION", "DATA_FILE",
            "NIST_DATA"]
 
+
 def read_isotopes_data(path):
     """ Read isotopes data in NIST data base and returns a data frame """
 
@@ -72,8 +73,9 @@ def superscripts(word):
 
     return word
 
+
 # electron mass
-# source (doi): 10.1103/PhysRevLett.75.3598 
+# source (doi): 10.1103/PhysRevLett.75.3598
 # atomic mass units (Da)
 ELECTRON_MASS = 0.0005485799
 
@@ -208,7 +210,7 @@ class Isotope:
     abundance_exist = NIST_DATA["isotopic abundance"].notna()
     ab_NIST_DATA = NIST_DATA[abundance_exist]
     _delta_matrix = ab_NIST_DATA["exact mass"].values \
-                  - ab_NIST_DATA["exact mass"].values[:, np.newaxis]
+        - ab_NIST_DATA["exact mass"].values[:, np.newaxis]
 
     def __init__(self, Z=1, A=1):
         """ Return an isotope defined from its atomic number and its
@@ -269,7 +271,7 @@ class Isotope:
         return self._data["element"]
 
     @classmethod
-    def find_mass_split(cls, requested_split=1.003355, tolerance=0.0001, 
+    def find_mass_split(cls, requested_split=1.003355, tolerance=0.0001,
                         superscript=False, sort=True):
         """ Find a mass gap between two isotopes.
 
@@ -299,7 +301,7 @@ class Isotope:
                     name = (f'{cls.ab_NIST_DATA.iloc[i]["super symbol"]}'
                             f' - {cls.ab_NIST_DATA.iloc[j]["super symbol"]}')
                 else:
-                    name = (f'{cls.ab_NIST_DATA.iloc[i]["symbol"]}' 
+                    name = (f'{cls.ab_NIST_DATA.iloc[i]["symbol"]}'
                             f' - {cls.ab_NIST_DATA.iloc[j]["symbol"]}')
 
                 candidates.append((name, error))
@@ -420,13 +422,9 @@ class Isotope:
 
     def __eq__(self, other):
         return isinstance(other, Isotope) and self.Z == other.Z and self.A == other.A
-    
+
     def __add__(self, other):
         return self.exact_mass + other.exact_mass
 
     def __sub__(self, other):
         return self.exact_mass - other.exact_mass
-
-
-
-

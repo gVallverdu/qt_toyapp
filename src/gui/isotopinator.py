@@ -6,6 +6,7 @@ from isotopes import Isotope
 
 from .ui_isotopinator import Ui_isotopinator
 
+
 class Isotopinator(QWidget, Ui_isotopinator):
 
     def __init__(self, parent=None):
@@ -16,13 +17,12 @@ class Isotopinator(QWidget, Ui_isotopinator):
         self.setupUi(self)
 
         self.connect_signals_slots()
-    
+
     def connect_signals_slots(self):
         """ set up actions """
         self.search_mass_split_btn.clicked.connect(self.search_mass_split)
         self.candidate_list.clicked.connect(self.select_candidate)
         self.error_list.clicked.connect(self.select_error)
-
 
     def search_mass_split(self):
         """ Look for mass split and show the list """
@@ -45,7 +45,7 @@ class Isotopinator(QWidget, Ui_isotopinator):
             requested_split = float(requested_split)
         except ValueError:
             QMessageBox.warning(
-                self, "Error", 
+                self, "Error",
                 f"Wrong mass split value: '{requested_split}'",
                 QMessageBox.Ok)
             valid = False
@@ -73,7 +73,6 @@ class Isotopinator(QWidget, Ui_isotopinator):
             for name, error in candidates:
                 self.candidate_list.addItem(QListWidgetItem(name))
                 self.error_list.addItem(QListWidgetItem(f"{error: .7f}"))
-    
 
     def select_candidate(self):
         i = self.candidate_list.currentRow()

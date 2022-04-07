@@ -3,6 +3,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def g(x, mu, sigma):
     """ gaussian function """
     return 1 / (sigma * np.sqrt(2 * np.pi)) * np.exp(-((x - mu) / sigma) ** 2 / 2)
@@ -13,13 +14,13 @@ def gaussian_plot(mu=0, sigma=1, npts=100, fig=None):
 
     if fig is None:
         fig, (ax1, ax2) = plt.subplots(
-            nrows=2, sharex=True, 
+            nrows=2, sharex=True,
             gridspec_kw=dict(hspace=0, height_ratios=[1, 4]))
 
     # draw data:
     xr = np.random.normal(mu, sigma, npts)
     x = np.linspace(mu - 6 * sigma, mu + 6 * sigma, 100)
-    
+
     ax1.boxplot(xr, vert=False)
     ax1.set_yticks([])
     ax1.set_title(fr"$\mu$ = {mu:.1f} $\sigma$ = {sigma:.1f}")
@@ -31,7 +32,8 @@ def gaussian_plot(mu=0, sigma=1, npts=100, fig=None):
     fig.suptitle("Normal distribution")
 
     return fig
-    
+
+
 def color_plot(color):
     """ plot according to the color """
 
