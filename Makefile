@@ -1,12 +1,3 @@
-# UIFILES := $(wildcard src/ressources/ui/*.ui)
-# PYFILES := $(UIFILES:.ui=.py)
-
-# .PHONY: all
-# all: $(PYFILES)
-
-# %.py: %.ui
-#     pyuic5 $< --output src/gui/$@
-
 ###### EDIT ##################### 
 #Directory with ui and resource files
 UI_DIR = src/resources/ui
