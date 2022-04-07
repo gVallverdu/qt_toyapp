@@ -3,8 +3,7 @@
 
 import sys
 from PyQt5.QtWidgets import QApplication
-from .gui import Toyapp
-
+from toyapp.gui import Toyapp
 
 def main():
     """ Main application """
@@ -14,6 +13,3 @@ def main():
     myapp.show()
     sys.exit(app.exec())
 
-
-if __name__ == "__main__":
-    main()
