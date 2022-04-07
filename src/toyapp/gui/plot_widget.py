@@ -5,7 +5,7 @@ from tabnanny import check
 from PyQt5.QtWidgets import QWidget, QMessageBox
 from .ui_plot_widget import Ui_plot_widget
 
-from plots.gaussian import gaussian_plot
+from toyapp.plots.gaussian import gaussian_plot
 import matplotlib.pyplot as plt
 
 

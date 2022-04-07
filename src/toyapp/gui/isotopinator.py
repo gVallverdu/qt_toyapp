@@ -2,7 +2,7 @@
 # coding: utf-8
 
 from PyQt5.QtWidgets import QWidget, QMessageBox, QListWidgetItem
-from isotopes import Isotope
+from toyapp.isotopes import Isotope
 
 from .ui_isotopinator import Ui_isotopinator
 

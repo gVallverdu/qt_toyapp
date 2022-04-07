@@ -4,7 +4,7 @@
 from PyQt5.QtWidgets import QWidget, QMessageBox
 from .ui_last_widget import Ui_last_widget
 
-from plots.color import color_plot
+from toyapp.plots.color import color_plot
 
 
 class Last_widget(QWidget, Ui_last_widget):

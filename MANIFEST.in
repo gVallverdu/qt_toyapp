@@ -1,3 +1,8 @@
-include ./src/ressources/data/AtomicWeightsAndIsotopicDataNIST2021.txt
-include ./src/ressources/ui/*.ui
-Makefile
+# added by check-manifest
+include *.txt
+include Makefile
+recursive-include src *.jpg
+recursive-include src *.png
+recursive-include src *.py
+recursive-include src *.txt
+recursive-include src *.ui
